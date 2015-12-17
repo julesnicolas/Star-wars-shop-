@@ -1,0 +1,159 @@
+<?php
+
+namespace EshopBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * history
+ *
+ * @ORM\Table(name="history")
+ * @ORM\Entity(repositoryClass="EshopBundle\Repository\historyRepository")
+ */
+class history
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="total", type="decimal", precision=10, scale=2)
+     */
+    private $total;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="ordered_on", type="datetime")
+     */
+    private $orderedOn;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="bascket_id", type="integer")
+     */
+    private $bascketId;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="validate", type="smallint")
+     */
+    private $validate;
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set total
+     *
+     * @param string $total
+     *
+     * @return history
+     */
+    public function setTotal($total)
+    {
+        $this->total = $total;
+
+        return $this;
+    }
+
+    /**
+     * Get total
+     *
+     * @return string
+     */
+    public function getTotal()
+    {
+        return $this->total;
+    }
+
+    /**
+     * Set orderedOn
+     *
+     * @param \DateTime $orderedOn
+     *
+     * @return history
+     */
+    public function setOrderedOn($orderedOn)
+    {
+        $this->orderedOn = $orderedOn;
+
+        return $this;
+    }
+
+    /**
+     * Get orderedOn
+     *
+     * @return \DateTime
+     */
+    public function getOrderedOn()
+    {
+        return $this->orderedOn;
+    }
+
+    /**
+     * Set bascketId
+     *
+     * @param integer $bascketId
+     *
+     * @return history
+     */
+    public function setBascketId($bascketId)
+    {
+        $this->bascketId = $bascketId;
+
+        return $this;
+    }
+
+    /**
+     * Get bascketId
+     *
+     * @return int
+     */
+    public function getBascketId()
+    {
+        return $this->bascketId;
+    }
+
+    /**
+     * Set validate
+     *
+     * @param integer $validate
+     *
+     * @return history
+     */
+    public function setValidate($validate)
+    {
+        $this->validate = $validate;
+
+        return $this;
+    }
+
+    /**
+     * Get validate
+     *
+     * @return int
+     */
+    public function getValidate()
+    {
+        return $this->validate;
+    }
+}
+
