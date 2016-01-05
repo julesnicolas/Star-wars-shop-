@@ -35,6 +35,19 @@ class users
      */
     private $password;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=255)
+     */
+    private $email;
+
+    /**
+     * @ORM\Column(name="roles", type="array")
+     */
+
+    private $roles = array();
+
 
     /**
      * Get id
@@ -93,5 +106,58 @@ class users
     {
         return $this->password;
     }
-}
 
+    /**
+ * Set email
+ *
+ * @param string $email
+ *
+ * @return users
+ */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Set roles
+     *
+     * @param array $roles
+     *
+     * @return users
+     */
+    public function setRoles($roles)
+    {
+        $this->roles = $roles;
+
+        return $this;
+    }
+
+    /**
+     * Get roles
+     *
+     * @return array
+     */
+    public function getRoles()
+    {
+        return $this->roles;
+    }
+
+    public function eraseCredentials()
+
+    {
+
+    }
+}

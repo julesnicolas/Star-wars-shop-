@@ -1,3 +1,24 @@
-eshop_homepage:
+eshop_home:
     path:     /
-    defaults: { _controller: EshopBundle:Post:index }
+    defaults: { _controller: EshopBundle:Front:index }
+
+eshop_newproduct_view:
+    path:     /product/{id}
+    defaults: { _controller: EshopBundle:Post:view }
+
+eshop_addproduct:
+    path:     /add
+    defaults: { _controller: EshopBundle:Post:add }
+
+eshop_editproduct:
+    path:     /edit/{id}
+    defaults: { _controller: EshopBundle:Post:edit }
+    requirements:
+            id: \d+
+
+eshop_deleteproduct:
+    path:     /delete/{id}
+    defaults: { _controller: EshopBundle:Post:delete }
+    requirements:
+        id: \d+
+

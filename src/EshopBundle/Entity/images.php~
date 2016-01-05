@@ -162,3 +162,4 @@ class images
         $this->file = $file;
     }
 }
+

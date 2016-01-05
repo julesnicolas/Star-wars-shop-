@@ -63,17 +63,17 @@ class products
      * @ORM\Column(name="status", type="boolean")
      */
     private $status = true;
+    /**
+     * @ORM\OneToOne(targetEntity="images", mappedBy="products", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $images;
 
     /**
-     * @ORM\OneToOne(targetEntity="EshopBundle\Entity\categories", cascade={"persist"})
-     * @ORM\JoinColumn(name="categories_id", referencedColumnName="id")
+     * @ORM\OneToOne(targetEntity="categories", mappedBy="products", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
      */
     private $categories;
-
-    public function __construct()
-    {
-        $this->datetime = new \Datetime();
-    }
 
     /**
      * Get id
@@ -269,18 +269,5 @@ class products
     }
 
 
-
-    /**
-     * Set categories
-     *
-     * @param \EshopBundle\Entity\categories $categories
-     *
-     * @return products
-     */
-    public function setCategories(\EshopBundle\Entity\categories $categories)
-    {
-        $this->categories = $categories;
-
-        return $this;
-    }
 }
+

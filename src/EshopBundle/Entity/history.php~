@@ -125,3 +125,4 @@ class history
         return $this->validate;
     }
 }
+

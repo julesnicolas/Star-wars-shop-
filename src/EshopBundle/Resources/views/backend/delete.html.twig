@@ -1,0 +1,25 @@
+
+<h2>Supprimer une annonce</h2>
+
+
+<p>
+
+    Etes-vous certain de vouloir supprimer l'annonce "{{ advert.title }}" ?
+
+</p>
+
+<form action="{{ path('eshop_deleteproduct', {'id': advert.id}) }}" method="post">
+
+    <a href="{{ path('eshop_newproduct_view', {'id': advert.id}) }}" class="btn btn-default">
+
+        <i class="glyphicon glyphicon-chevron-left"></i>
+
+        Retour à l'annonce
+
+    </a>
+
+    <input type="submit" value="Supprimer" class="btn btn-danger" />
+
+    {{ form_rest(form) }}
+
+</form>
