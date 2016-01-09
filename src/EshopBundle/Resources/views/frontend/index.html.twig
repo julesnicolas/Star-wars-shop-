@@ -1,0 +1,21 @@
+{% extends "EshopBundle::layout.html.twig" %}
+
+{% block body %}
+
+    {% for product in products %}
+    <div class="col-sm-4 col-lg-4 col-md-4">
+        <div class="thumbnail">
+            <img src="http://placehold.it/320x150" alt="">
+            <div class="caption">
+                <h4 class="pull-right">{{ product.price }}<i class="glyphicon glyphicon-euro"></i></h4>
+                <h4><a href="{{ path('eshop_newproduct_view', { 'id': product.id }) }}">{{product.title }}</a>
+                </h4>
+                <p>{{ product.abstract }}</p>
+                <a class="btn btn-primary btn-info" href="{{ path('eshop_newproduct_view', { 'id': product.id }) }}">Voir plus</a>
+
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+{% endblock %}

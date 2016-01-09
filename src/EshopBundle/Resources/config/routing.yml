@@ -1,6 +1,10 @@
 eshop_home:
     path:     /
-    defaults: { _controller: EshopBundle:Front:index }
+    defaults: { _controller: AppBundle:Default:index }
+
+eshop_dashboard:
+    path:     /board
+    defaults: { _controller: EshopBundle:Board:board }
 
 eshop_newproduct_view:
     path:     /product/{id}
@@ -21,4 +25,13 @@ eshop_deleteproduct:
     defaults: { _controller: EshopBundle:Post:delete }
     requirements:
         id: \d+
+login:
+    pattern:   /login
+    defaults:  { _controller: EshopBundle:Security:login }
+
+login_check:
+    pattern:   /login_check
+
+logout:
+    pattern:   /logout
 

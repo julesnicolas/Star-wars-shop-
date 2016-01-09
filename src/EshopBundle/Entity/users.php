@@ -38,6 +38,13 @@ class users
     /**
      * @var string
      *
+     * @ORM\Column(name="salt", type="string", length=255)
+     */
+    private $salt;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="email", type="string", length=255)
      */
     private $email;
@@ -47,6 +54,13 @@ class users
      */
 
     private $roles = array();
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="credit", type="string", length=255, nullable=true)
+     */
+    private $credit;
 
 
     /**
@@ -108,12 +122,36 @@ class users
     }
 
     /**
- * Set email
- *
- * @param string $email
- *
- * @return users
- */
+     * Set salt
+     *
+     * @param string $salt
+     *
+     * @return users
+     */
+    public function setsAlt($salt)
+    {
+        $this->salt = $salt;
+
+        return $this;
+    }
+
+    /**
+     * Get salt
+     *
+     * @return string
+     */
+    public function getAlt()
+    {
+        return $this->salt;
+    }
+
+    /**
+    * Set email
+    *
+    * @param string $email
+    *
+    * @return users
+    */
     public function setEmail($email)
     {
         $this->email = $email;
@@ -153,6 +191,31 @@ class users
     public function getRoles()
     {
         return $this->roles;
+    }
+
+
+    /**
+     * Set credit
+     *
+     * @param string $credit
+     *
+     * @return users
+     */
+    public function setCredit($credit)
+    {
+        $this->username = $credit;
+
+        return $this;
+    }
+
+    /**
+     * Get credit
+     *
+     * @return string
+     */
+    public function getCredit()
+    {
+        return $this->credit;
     }
 
     public function eraseCredentials()

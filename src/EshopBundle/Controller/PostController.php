@@ -9,9 +9,19 @@ use Symfony\Component\HttpFoundation\Request;
 class PostController extends Controller
 {
 
-    public function viewAction()
+    public function viewAction($id)
     {
-        return $this->render('EshopBundle:frontend:view.html.twig');
+        $em = $this->getDoctrine()->getEntityManager();
+
+        $product = $em->getRepository('EshopBundle:products')->find($id);
+
+        if (!$product) {
+            throw $this->createNotFoundException('Unable to find Product entity.');
+        }
+
+        return $this->render('EshopBundle:frontend:view.html.twig', array(
+            'product' => $product,
+        ));
     }
 
     public function addAction(Request $request)

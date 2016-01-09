@@ -1,7 +1,12 @@
-<html>
+{% extends "EshopBundle::layout.html.twig" %}
 
-<body>
+{% block body %}
 
-</body>
+    {# On définit un sous-titre commun à toutes les pages du bundle, par exemple #}
+    <h1>{{ product.title }}</h1>
 
-</html>
+    <p>{{ product.content }}</p>
+
+<p>{{ product.price }}</p>
+
+{% endblock %}

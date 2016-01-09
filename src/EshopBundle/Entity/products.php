@@ -249,6 +249,32 @@ class products
         return $this->images;
     }
 
+    /**
+     * Set categories
+     *
+     * @param \EshopBundle\Entity\categories $categories
+     *
+     * @return products
+     */
+    public function setCategories(\EshopBundle\Entity\categories $categories)
+    {
+        $this->categories = $categories;
+
+        return $this;
+    }
+
+    /**
+     * Set categories
+     *
+     * @param \EshopBundle\Entity\categories $categories
+     *
+     * @return products
+     */
+    public function getCategories()
+    {
+        return $this->categories;
+    }
+
 
     public function addCategories(Categories $categories)
     {
@@ -263,24 +289,4 @@ class products
     }
 
 
-    public function getCategories()
-    {
-        return $this->categories;
-    }
-
-
-
-    /**
-     * Set categories
-     *
-     * @param \EshopBundle\Entity\categories $categories
-     *
-     * @return products
-     */
-    public function setCategories(\EshopBundle\Entity\categories $categories)
-    {
-        $this->categories = $categories;
-
-        return $this;
-    }
 }

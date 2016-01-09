@@ -1,0 +1,34 @@
+{% extends "EshopBundle::layout.html.twig" %}
+
+{% block body %}
+
+    {{ dump(products) }}
+    <div class="table-responsive">
+        <table class="table">
+           <tr>
+               <td>Satuts</td>
+               <td>Titre</td>
+               <td>Date</td>
+               <td>Categorie</td>
+               <td>prix</td>
+               <td>Edit</td>
+               <td>Supprimer</td>
+           </tr>
+            {% for product in products %}
+            <tr>
+                {% if product.status == true %}
+                <td><i class="glyphicon glyphicon-ok-sign"></i></td>
+                 {% else %}
+                <td><i class="glyphicon glyphicon-remove-sign"></i></td>
+                 {% endif %}
+                <td>{{product.title }}</td>
+                <td>{{ product.datetime|date('d/m/Y')  }}</td>
+                <td></td>
+                <td>{{ product.price }}</td>
+                <td><a href="{{ path('eshop_editproduct', { 'id': product.id }) }}">Edit</a></td>
+                <td><a href="{{ path('eshop_deleteproduct', { 'id': product.id }) }}">Supprimer</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

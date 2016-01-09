@@ -42,6 +42,12 @@ class history
      */
     private $validate;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="EshopBundle\Entity\users", inversedBy="history")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $username;
+
 
     /**
      * Get id
@@ -123,5 +129,29 @@ class history
     public function getValidate()
     {
         return $this->validate;
+    }
+
+    /**
+     * Get username
+     *
+     * @return \EshopBundle\Entity\users
+     *
+     * @return history
+     */
+    public function setUsername(\EshopBundle\Entity\users $username= null)
+    {
+        $this->username = $username;
+
+        return $this;
+    }
+
+    /**
+     * Get username
+     *
+     * @return \EshopBundle\Entity\users
+     */
+    public function getUsername()
+    {
+        return $this->username;
     }
 }
